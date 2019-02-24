@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load staticfiles %}
+
+
+<!--覆盖原来的导航栏区域-->
+{% block navbar %}
+{% endblock %}
+{% block search %}
+    <div class="search_bar clearfix">
+        <a href="{% url 'index' %}" class="logo fl"><img src="{% static 'images/logo.png' %}"
+                                                         style="width: 160px; height: 53px;"></a>
+        <div class="sub_page_name fl">|&nbsp;&nbsp;&nbsp;&nbsp;用户中心</div>
+        <div class="search_con fr">
+            <input type="text" class="input_text fl" name="" placeholder="搜索商品">
+            <input type="button" class="input_btn fr" name="" value="搜索">
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+
+    <div class="main_con clearfix">
+        <div class="left_menu_con clearfix">
+            <h3>用户中心</h3>
+            <ul>
+                <li><a href="{% url 'info' %}">· 个人信息</a></li>
+                <li><a href="{% url 'order_info' %}" class="active">· 全部订单</a></li>
+                <li><a href="{% url 'address' %}">· 收货地址</a></li>
+            </ul>
+        </div>
+        <div class="right_content clearfix">
+            <h3 class="common_title2"><a href="{% url 'order_info' %}">全部订单</a>>订单详情</h3>
+
+            <ul class="order_list_th w978 clearfix">
+                <li class="col01">{{ order_detail.add_time }}</li>
+                <li class="col02">订单号：{{ order_detail.order }}</li>
+                <li class="col02 stress">
+                    {% if order_detail.pay_status %}已支付 {{ order_detail.pay_method }} {% else %}未支付{% endif %}</li>
+            </ul>
+            <table class="order_list_table w980">
+                <tbody>
+                <tr>
+                    <td width="55%">
+                        {% for item in order_detail.get_item %}
+                            <ul class="order_book_list clearfix">
+                                <li class="col01"><img src="{{ item.product.image }}"></li>
+                                <li class="col02">{{ item.product.title|center:"5" }}<em>{{ item.product.get_price }}元/册</em>
+                                </li>
+                                <li class="col03">{{ item.num }}</li>
+                                <li class="col04">{{ item.product.get_price }}元</li>
+                            </ul>
+                        {% endfor %}
+                    </td>
+                    <td width="15%">{{ order_detail.totalPrice }}元</td>
+                    <td width="15%">{% if order_detail.pay_status %}已支付 {% else %}待付款{% endif %}</td>
+                    <td width="15%">
+                        {% if not order_detail.pay_status %}
+                            <a href="#" class="to_pay oper_btn" id="{{ order_detail.order }}">去付款</a>
+                        {% else %}
+                            <a href="#" class="oper_btn">申请售后</a>
+                        {% endif %}
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+
+            {% csrf_token %}
+
+        </div>
+    </div>
+{% endblock %}

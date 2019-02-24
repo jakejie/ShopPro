@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load staticfiles %}
+
+{% block carousel %}
+
+{% endblock %}
+
+{% block content %}
+    <div class="breadcrumb">
+        <a href="#">全部分类</a>
+        <span>></span>
+        <a href="#">{{ name }}</a>
+    </div>
+
+    <div class="main_wrap clearfix">
+        <!---新品推荐--->
+        <div class="l_wrap fl clearfix">
+            <div class="new_book">
+                <h3>新品推荐</h3>
+                <ul>
+                    <li>
+                        <a href="#"><img src="{% static 'images/book/book001.jpg' %}"></a>
+                        <h4><a href="#">Python核心编程</a></h4>
+                        <div class="prize">￥3.90</div>
+                    </li>
+                    <li>
+                        <a href="#"><img src="{% static 'images/book/book002.jpg' %}"></a>
+                        <h4><a href="#">Python学习手册</a></h4>
+                        <div class="prize">￥16.80</div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!---商品列表-->
+        <div class="r_wrap fr clearfix">
+            <div class="sort_bar">
+                <a href="?sort=default" {% if sort == 'default' %}class="active"{% endif %}>默认</a>
+                <a href="?sort=price" {% if sort == 'price' %}class="active"{% endif %}>价格</a>
+                <a href="?sort=hot" {% if sort == 'hot' %}class="active"{% endif %}>人气</a>
+            </div>
+            <!--结果列表--->
+            <ul class="book_type_list clearfix">
+                {% for product in contacts %}
+                    <li>
+                        <a href="{% url 'detail' product.product.id %}">
+                            <img src="{{ product.product.image }}"></a>
+                        <h4><a href="{% url 'detail' product.product.id %}">{{ product.product.title }}</a></h4>
+                        <div class="operate">
+                            <span class="prize">￥{{ product.product.get_price }}</span>
+                            <span class="unit">/册</span>
+                            <a class="add_book" id="add_cart" books_id="{{ product.product.id }}"
+                               title="加入购物车"> </a>
+                        </div>
+                        <input type="hidden" class="num_show fl" value="1">
+                        {% csrf_token %}
+                    </li>
+
+                {% endfor %}
+            </ul>
+            <!--分页--->
+            {% include 'page.html' %}
+        </div>
+    </div>
+{% endblock %}

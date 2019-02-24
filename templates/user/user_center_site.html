@@ -1,0 +1,159 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% load staticfiles %}
+
+{% block link %}
+    <style>
+        button {
+            border: 1px solid #ccc;
+            cursor: pointer;
+            display: block;
+            margin: auto;
+            position: relative;
+            top: 100px;
+        }
+    </style>
+
+{% endblock %}
+
+{% block navbar %}
+{% endblock %}
+
+{% block search %}
+    <div class="search_bar clearfix">
+        <a href="{% url 'index' %}" class="logo fl">
+            <img src="{% static 'images/logo.png' %}" style="width: 160px; height: 53px;"></a>
+        <div class="sub_page_name fl">|&nbsp;&nbsp;&nbsp;&nbsp;用户中心</div>
+        <div class="search_con fr">
+            <input type="text" class="input_text fl" name="" placeholder="搜索商品">
+            <input type="button" class="input_btn fr" name="" value="搜索">
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+
+    <div class="main_con clearfix">
+        <div class="left_menu_con clearfix">
+            <h3>用户中心</h3>
+            <ul>
+                <li><a href="{% url 'info' %}">· 个人信息</a></li>
+                <li><a href="{% url 'order_info' %}">· 全部订单</a></li>
+                <li><a href="{% url 'address' %}" class="active">· 收货地址</a></li>
+            </ul>
+        </div>
+        <div class="right_content clearfix">
+            <h3 class="common_title2">收货地址</h3>
+            <div class="site_con">
+                <dl>
+                    {% if address_list|length == 0 %}
+                        <dt>您还没有添加收货地址哦～</dt>
+                    {% else %}
+                        <dt>当前地址：</dt>
+                        {% for address in address_list %}
+                            <dd>{{ address.address }} {{ address.detail }} （{{ address.name }} 收） {{ address.mobile }}
+                                {% if address.zip_code %} 邮编：{{ address.zip_code }}{% endif %}</dd>
+                        {% endfor %}
+                    {% endif %}
+                </dl>
+            </div>
+            <h3 class="common_title2">新增地址</h3>
+            <div class="site_con">
+                <form>
+                    <div class="form_group">
+                        <label>收件人：</label>
+                        <input type="text" id="user_name" name="name" value="">
+                    </div>
+                    <div class="form_group">
+                        <label>收货地址：</label>
+                        <div class="info">
+                            <div>
+                                <select id="s_province" name="s_province"></select>
+                                <select id="s_city" name="s_city"></select>
+                                <select id="s_county" name="s_county"></select>
+                                <script class="resources library" src="{% static 'js/address.js' %}"
+                                        type="text/javascript"></script>
+
+                                <script type="text/javascript">_init_area();</script>
+                            </div>
+                            <div id="show"></div>
+                        </div>
+
+
+                    </div>
+                    <div class="form_group form_group2">
+                        <label>详细地址：</label>
+                        <textarea id="detail_area" class="site_area" value=""></textarea>
+                    </div>
+                    <div class="form_group">
+                        <label>邮编：</label>
+                        <input id="code" type="text" name="" value="">
+                    </div>
+                    <div class="form_group">
+                        <label>手机：</label>
+                        <input id="mobile" type="text" name="" value="">
+                    </div>
+                    <div class="form_group">
+                        <label>设为默认地址：</label>
+                        <dd>
+                            <input id="default" type="radio" name="default" value="1">
+                        </dd>
+                    </div>
+                    {% csrf_token %}
+                    <input type="button" name="" value="提交" class="info_submit">
+                </form>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+{% block javascript %}
+    <!---地址 三级联动--->
+    <script type="text/javascript">
+        var Gid = document.getElementById;
+        var showArea = function () {
+            Gid('show').innerHTML = "<h3>省" + Gid('s_province').value + " - 市" +
+                Gid('s_city').value + " - 县/区" +
+                Gid('s_county').value + "</h3>"
+        };
+        Gid('s_county').setAttribute('onchange', 'showArea()');
+    </script>
+    <!---添加地址 post请求--->
+    <script type="text/javascript">
+        $('.info_submit').click(function () {
+                //获取相关数据
+                var name = $('#user_name').val();
+                var s_province = $('#s_province').val();
+                var s_city = $('#s_city').val();
+                var s_county = $('#s_county').val();
+                var detail_area = $('#detail_area').val();
+                var code = $('#code').val();
+                var mobile = $('#mobile').val();
+                var is_default = $('input:radio[name="default"]:checked').val();
+                var csrfmiddlewaretoken = $('input[name="csrfmiddlewaretoken"]').val();
+                params = {
+                    "name": name,
+                    "s_province": s_province,
+                    "s_city": s_city,
+                    "s_county": s_county,
+                    "detail_area": detail_area,
+                    "code": code,
+                    "mobile": mobile,
+                    "is_default": is_default,
+                    "csrfmiddlewaretoken": csrfmiddlewaretoken,
+                };
+                //alert(name + s_province + s_city + s_county + detail_area + code + mobile + "====" + is_default)
+                $.post('/user/address/', params, function (data) {
+                    if (data.code == 3) {
+                        //alert(data.msg);
+                        location.reload()
+                    } else {
+                        alert(data.msg)
+                    }
+                })
+            }
+        )
+
+    </script>
+{% endblock %}

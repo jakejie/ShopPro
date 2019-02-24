@@ -1,0 +1,37 @@
+<!---一级分类--->
+{% for category in parent %}
+    <li class="category" style="width: 100%;z-index: 999">
+        <a href="{% url 'parent' category.slug %}"
+           class="{{ category.slug }}">一级》{{ category.name }}</a>
+        <ul style="float: right;z-index: 999" class="cate">
+            <!--二级分类--->
+            {% for ca in category.get_category %}
+                <li>
+                    <a class="two" href="{% url 'category' ca.slug %}">二级》{{ ca.name }}</a>
+                    <ul style="float: right" class="tag">
+                        <!--三级分类--->
+                        {% for tag in ca.get_tag %}
+                            <li style="float: right">
+                                <a class="three" href="{% url 'tag' tag.slug %}">三级》{{ tag.name }}</a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </li>
+            {% endfor %}
+        </ul>
+    </li>
+{% endfor %}
+
+
+{#                    <ul>#}
+{#                        {% for ca in category.get_category %}#}
+{#                            <a class="two" href="{% url 'category' ca.slug %}">二级》{{ ca.name }}</a>#}
+{#                            <ul>#}
+{#                                {% for tag in ca.get_tag %}#}
+{#                                    <li style="float: right">#}
+{#                                        <a class="three" href="{% url 'tag' tag.slug %}">三级》{{ tag.name }}</a>#}
+{#                                    </li>#}
+{#                                {% endfor %}#}
+{#                            </ul>#}
+{#                        {% endfor %}#}
+{#                    </ul>#}

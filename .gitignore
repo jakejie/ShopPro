@@ -1,0 +1,10 @@
+.DS_Store
+# Editor directories and files
+.idea
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.pyc
+*.out
+__pycache__

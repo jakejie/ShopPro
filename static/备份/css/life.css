@@ -1,0 +1,398 @@
+﻿#nav .category-content .all-goods {
+    background:#e60000 url(../Images/categoryarrowdown.png) no-repeat 159px 18px;
+    cursor:pointer;
+    position:relative;
+    z-index:114;
+}
+.category-content .category { display:none; top:42px; }
+/*生活频道分类*/
+.bannerWrap .w1200 { position:relative; }
+.channelCategory { position:absolute; left:0; top:0; width:200px; }
+.channelCategory .category h2 { height: 40px;  color:#fff; background:#2b954e;  line-height:40px; font-size:16px;font-family:'Microsoft YaHei'; padding-left:40px; font-weight:normal;position:relative; }
+.channelCategory .category h2 .icon { position:absolute; left:12px; top:10px; width:22px; height:20px; background: url(../Images/childredSprit.png) no-repeat -251px -126px; }
+.channelCategory .category .categoryInner { background:#fff; }
+.channelCategory .category-list { padding-top:1px;  border:1px solid #2b954e;border-top:none; }
+.channelCategory .category-list .js_toggle { border:2px solid #fff; border-right:none;position:relative;z-index:113; vertical-align:bottom;   }
+.channelCategory .category-list li { border:2px solid #fff; border-right:none;position:relative;z-index:113; vertical-align:bottom;  }
+.channelCategory .category-info {  position:relative;  padding:0 10px; background:#fff; }
+.channelCategory .category-info .category-infoInner {  border-bottom:1px solid #7ed29a; padding-bottom:3px; background:#fff;}
+.channelCategory .category-name{ line-height:25px; padding-top:1px; }
+.channelCategory .category-name a{color:#329b55; font-family:'Microsoft YaHei'; font-size:15px; font-weight:400; text-decoration:none;  }
+.channelCategory .category-name a:hover { color:#4bc473; }
+.channelCategory .all_category { text-align:right; padding-right:12px; line-height:21px;  }
+.channelCategory .all_category a { color:#666;  }
+.channelCategory .c-category-list{  line-height:24px;  zoom:1;overflow:hidden; padding-bottom:1px;  }
+.channelCategory .c-category-list a{margin-right:14px;color:#666; text-decoration:none; float:left;  white-space:nowrap;}
+.channelCategory .c-category-list a:hover { color:#329b55; }
+.channelCategory .category-info em{position:absolute;top:4px;right:13px;width:6px;height:16px;font-size:16px;color:#ed653b; background: url(../Images/childredSprit.png) no-repeat -222px -486px; text-indent:-999px; overflow:hidden;}
+.channelCategory .category li.hover{margin-left:-1px;padding-left:1px; border:2px solid #7ed29a; border-right:none;} 
+.channelCategory .category-list li.hover .category-info{z-index:999; background:#fff; }
+.channelCategory .category-list li.hover .category-infoInner {  border-bottom:1px solid #fff;}
+.channelCategory .menu-item{display:none;position:absolute;z-index:998;  left:195px;width:382px;background:#fff;border:2px solid #7ed29a; zoom:1;}
+.channelCategory .menu-item .area-in{position:relative; z-index:1; }
+.channelCategory .menu-item .area-bg{padding:18px 0 18px 27px;}
+.channelCategory .menu-in{display:none;}
+.channelCategory .menu-item .area-bg{padding:18px 0 18px 27px;}
+.channelCategory .menu-item .area-bg p { overflow:hidden;  line-height:24px; }
+.channelCategory .menu-item .area-bg p a { float:left; color:#666666; text-decoration:none; }
+.channelCategory .menu-item .area-bg p a:hover { color:#f67e3e; }
+.channelCategory .menu-item .area-bg p span { float:left; color:#d6d6d6; margin:0 17px; }
+
+
+/*网页banner*/
+.bannerWrap {position:relative; z-index:6; background-repeat:no-repeat; background-position:center top; padding-top:10px;  }
+.bannerWrap .banner { margin:0px 0 0 210px; position:relative;height:360px; width:990px; overflow:hidden; }
+.bannerWrap .bannerList { height:360px; width:990px; overflow:hidden; }
+.bannerWrap .bannerList li { display:none; }
+.bannerWrap .bannerList li.on {  display:block }
+.bannerdot { position:absolute; bottom:-36px; width:100%; left:0; }
+.bannerdot a {float: left;width: 178px; padding: 3px 0;text-align: center;height: 34px;color: #fff;cursor: pointer;line-height: 17px;display: table;background:url('../Images/bannerline.png') no-repeat right ; background-color:rgba(0,0,0,0.7); background:#000\9; filter:Alpha(opacity=50)\9;  text-decoration:none; }
+.bannerdot.float1 a { width:100%; background-image:none;  }
+.bannerdot.float2 a { width:50%; background-image:none;  }
+.bannerdot.float3 a { width:33.333%; background-image:none;  }
+.bannerdot.float4 a { width:25%; background-image:none;  }
+.bannerdot.float5 a { width:20%; background-image:none;  }
+.bannerdot.float6 a { width:16.666%; background-image:none;  }
+.bannerdot.float7 a { width:14.2857%; background-image:none;  }
+.bannerdot a span { display: table-cell; vertical-align:middle; padding:0 10px;  }
+.bannerdot a.on { background:#e60000;filter:Alpha(opacity=100)\9;  }
+.bannerWrap .banner .arrow { position:absolute; width:27px; height:38px; top:50%; margin-top:-19px; cursor:pointer; display:none;  }
+.bannerWrap .banner .leftArrow { left:0; background:url(../Images/homeindex.png) no-repeat -73px -38px; background-color:#000; background-color:rgba(0,0,0,0.35);}
+.bannerWrap .banner .rightArrow { right:0; background:url(../Images/homeindex.png) no-repeat -73px 0px; background-color:#000; background-color:rgba(0,0,0,0.35);}
+.bannerWrap .banner .arrow:hover { background-color:rgba(0,0,0,0.2);}
+.bannerWrap .banner:hover .arrow { display:block;}
+
+
+/*大banner下的小专题 宽度不能定死 因为个数不统一*/
+
+
+.smallBannerWrap .smallBanner {  margin: 10px 0 0 210px; position: relative;  height: 180px; width: 990px; overflow:hidden;}
+.smallBannerWrap .smallBanner .smallBannerInner  { position:relative;  }
+.smallBannerWrap .smallBanner .smallBannerInner ul { position:absolute; left:0; top:0; width:1005px; overflow:hidden; }
+.smallBannerWrap .smallBanner .smallBannerInner ul li { float:left; margin-right:12px; }
+
+/*生活频道分类tab切换  畅销榜*/
+.hotBookWrap {position:relative; z-index:6; }
+.hotBookWrap .hotbookinner { margin:20px 0 0 0; }
+.hotBookWrap .channelKind { float:left; width:940px; background:#eff2f9; padding:10px 10px 12px;;  overflow:hidden; position:relative; }
+.channelKind .tabTit { overflow:hidden; }
+.channelKind .tabTit a { float:left; border-top:3px solid #eff2f9; color:#333; font-family:"Microsoft YaHei"; font-size:16px; height:37px; line-height:33px; padding:0 31px 0 26px; text-decoration:none; }
+.channelKind .tabTit a.cur {border-top:3px solid #2b954e; color:#2b954e; background:#fff;  }
+
+.channelKind .tabCon { background:#fff; height:543px; }
+.channelKind .tabItem { display:none; }
+.channelKind .tabItem.cur { display:block; }
+.channelKind .tabCon ul { overflow:hidden; padding:10px 10px 13px; height:530px; }
+.channelKind .tabCon ul li { float:left; width:180px; height:245px; padding:0 15px;  margin:10px; position:relative;  }
+.channelKind .tabCon ul li .activeIcon { position:absolute; right:0; top:0; }
+.channelKind .tabCon ul li .bookCover { text-align:center; padding:4px 0; height:170px; }
+.channelKind .tabCon ul li .bookCover img { max-height:170px; max-width:100%;  }
+.channelKind .tabCon ul li .bookName { height:36px; line-height:18px; overflow:hidden; }
+.channelKind .tabCon ul li .bookName a { color:#333333;text-decoration:none; }
+.channelKind .tabCon ul li .bookName a:hover { color:#e60000; }
+.channelKind .tabCon ul li .priceWrap { overflow:hidden; margin-top:4px; font-family:"Microsoft YaHei"; line-height:18px;  }
+.channelKind .tabCon ul li .priceWrap span { float:left; font-size:16px; color:#e60000; margin-right:11px; }
+.channelKind .tabCon ul li .priceWrap del { float:left; color:#999;  }
+
+
+.channelKind .arrow { position:absolute; width:27px; height:38px; top:50%; cursor:pointer;  z-index:3; display:none;  }
+.channelKind .tabItem:hover .arrow { display:block; } 
+.channelKind .leftArrow { left:2px; background:url(../Images/homeindex.png) no-repeat -73px -38px; background-color:#000; background-color:rgba(0,0,0,0.35);}
+.channelKind .rightArrow { right:2px; background:url(../Images/homeindex.png) no-repeat -73px 0px; background-color:#000; background-color:rgba(0,0,0,0.35);}
+.channelKind .arrow:hover { background-color:rgba(0,0,0,0.2);}
+
+
+
+
+.hot_sale  { float:right; width:230px;overflow:hidden; }
+.hot_sale .hotTitle { line-height:32px; height:32px; overflow:hidden; background:#fff;}
+.hot_sale .hotTitle h2 { float:left; font-size:16px; color:#2b954e; font-family:"Microsoft YaHei";font-weight:400; }
+.hot_sale .hotTitle a { float:right; color:#999999;  }
+
+.hot_sale .hotNav { font-size:12px;position:relative; background:#fff; }
+.hot_sale .hotNav .navDot { overflow:hidden; height:36px; position:relative;border-right:1px solid #e6e6e6; position:relative;   }
+.hot_sale .hotNav .navDot ul { overflow:hidden; width:560px; position:absolute; top:0; left:0; }
+.hot_sale .hotNav .navDot ul li { float:left; width:54px; height:34px; display:inline; border:1px solid #e6e6e6; border-right:none; line-height:34px;   }
+.hot_sale .hotNav .navDot ul li.cur { border-top:2px solid #2b954e; border-bottom:none;}
+.hot_sale .hotNav .navDot ul li a { display:block; text-align:center; color:#666666; text-decoration:none;  }
+.hot_sale .hotNav .navDot ul li.cur a { color:#2b954e;}
+.hotNav .arrow { position:absolute; width:10px; height:36px; top:0; cursor:pointer;  }
+.hotNav .leftArrow { left:0; background:url(../Images/homeindex.png) no-repeat -10px -64px; display:none; }
+.hotNav .rightArrow { right:0; background:url(../Images/homeindex.png) no-repeat 0 -64px; }
+.hotCon { border:1px solid #eaeaea; border-top:none; border-bottom:none; overflow:hidden;background:#fff; }
+.hotCon ul { display:none; }
+.hotCon ul.on { display:block;}
+.hotCon ul li { position:relative; border-bottom:1px solid #eaeaea;  line-height:0\9;   }
+.hotCon ul li i { position:absolute; height:32px; line-height:32px; font-size:14px; font-family:'Microsoft YaHei'; width:40px; text-align:center; top:0; }
+.hotCon ul li em { position:absolute;width: 4px; height: 6px;  right:10px; text-indent:-999px; overflow:hidden; top:14px;background: url(../Images/childredSprit.png) no-repeat 0 -343px; }
+.hotCon ul li.red i { color:#e60000;}
+.hotCon ul li p { height:34px; line-height:34px; color:#333333; text-indent:44px;  padding-right:35px;  overflow:hidden; cursor:pointer;}
+.hotCon ul li.cur p { display:none;}
+.hotCon ul li.cur em{ display:none;}
+.hotCon ul li .bookCur { display:none; overflow:hidden; padding:8px 0}
+.hotCon ul li .bookCur .bpic { float:left; width:85px; height:85px;  margin-left:30px; display:inline; text-align:center; }
+.hotCon ul li .bookCur .bpic a { display:block;}
+.hotCon ul li .bookCur .bpic img {  max-width:85px; max-height:85px;}
+.hotCon ul li .bookCur .bDetai {  float:left; width:100px; overflow:hidden;  }
+.hotCon ul li .bookCur .bDetai .bName { margin-top:8px; line-height:22px; height:44px; overflow:hidden; position:relative;  }
+.hotCon ul li .bookCur .bDetai .bName a { display:block;height:44px;  color:#333; font-family:"黑体"; font-size:14px; overflow:hidden; }
+.hotCon ul li.cur .bookCur { display:block; }
+.hotCon ul li .bookCur .bPrice { overflow:hidden; margin-top:3px; line-height:normal\9; }
+.hotCon ul li .bookCur .bPrice .sellPrice { float:left; color:#e60000; font-family:"Microsoft YaHei";}
+.hotCon ul li .bookCur .bPrice .price { float:left; color:#999999; text-decoration-line:line-through; font-family:"Microsoft YaHei"; margin-left:3px;}
+
+.moreHotSale { text-align:right; line-height:20px; padding-right:10px;  background:#f0f0f0; height:20px;  }
+.moreHotSale a { font-size:12px; color:#666; }
+
+.hot_sale .hot_banner { margin-top:10px; }
+/*热门广告*/
+.hotSubject { margin-top:20px; }
+.hotSubject .w1210 { width:1222px; margin:auto; }
+.hotSubject .w1210 a { float:left;width: 396px; margin-left:11px; }
+
+/*横条广告*/
+.pageGuangao { margin-top:25px;}
+/*新到特价书精选*/
+.newbooksWrap { margin-top:10px; }
+.newbooksWrap .newTit { line-height:52px;  }
+.newTit  h2 { float:left; font-size:22px; font-family:"Microsoft YaHei"; display:inline; margin-right:3px; width:170px; } 
+.newTit h2 a {  color:#333;  text-decoration:none; overflow:hidden;  }
+.newTit h2 a span.icon { float:right;  width:8px; height:14px;background: url(../Images/childredSprit.png) no-repeat -16px -486px; margin-top:19px; margin-left:0px;  }
+.newTit>a span { position:absolute; right:0; top:25px; width:8px; height:10px; background:url(../Images/homeindex.png) no-repeat -21px -63px;  }
+.newTit b { font-size:14px; font-family:'Microsoft YaHei'; float:right; height:52px;  line-height:52px; color:#333; cursor:pointer; position:relative; padding-left:20px;  } 
+.newTit b span { position:absolute; left:0; top:20px; height:13px; width:14px; background: url(../Images/childredSprit.png) no-repeat -57px -425px;  } 
+.newTit b:hover { color:#e60000; }
+.newTit b:hover span { background: url(../Images/childredSprit.png) no-repeat -57px -445px;  }
+
+
+.newCon { position:relative;}
+.newWrap ul { overflow:hidden; height:209px; border-left:1px solid #e6e6e6; width:1201px; }
+.newWrap ul li { float:left; height:206px; width:240px; border:1px solid #e6e6e6; border-top-width:2px; border-right:none; border-left:none; position:relative; }
+.newWrap ul li .icon { position:absolute; right:10px; top:50px; } 
+.newWrap ul li:hover { border-top-color:#2b954e;}
+.newWrap ul li .bookText { height:198px; padding:8px 14px 0; border-right:1px solid #e6e6e6;  }
+.newWrap ul li .bookText a { display:block; height:24px; overflow:hidden; color:#333;  font-size:14px; line-height:24px; font-family:"Microsoft YaHei";}
+.newWrap ul li:hover .bookText a { color:#2b954e; text-decoration:none; }
+
+.newWrap ul li .bookText .bookAuthor { color:#666; line-height:22px;}
+.newWrap ul li .bookText .priceWrap {font-family:"Microsoft YaHei"; font-size:14px; line-height:23px; }
+.newWrap ul li .bookText .priceWrap del { display:block; color:#999;}
+.newWrap ul li .bookText .priceWrap span { color:#e60000;}
+.newWrap ul li .bookImg { position:absolute; bottom:0; right:2px; text-align:center; padding:0 0 5px; width:145px; height:145px; -webkit-transition: -webkit-transform .4s ease-out; transition: -webkit-transform .4s ease-out; -moz-transition: transform .4s ease-out,-moz-transform .4s ease-out; transition: transform .4s ease-out;transition: transform .4s ease-out,-webkit-transform .4s ease-out,-moz-transform .4s ease-out; outline:0; }
+.newWrap ul li .bookImg:hover  { -webkit-transform:translateX(-10px); -moz-transform:translateX(-10px); -ms-transform:translateX(-10px); transform:translateX(-10px)}
+.newWrap ul li .bookImg a { outline: none; border:1px solid #fff;} 
+.newWrap ul li .bookImg img { max-height:145px; border:none; max-width:145px; border:0; }
+
+
+/*读者好评 */
+
+.praiseCheapWrap  { margin-top:20px;  }
+.praiseWrap { float:left; width:583px;  }
+.praiseWrap .praiseTitle {height: 47px; border: 1px solid #e6e6e6;  border-bottom: 3px solid #efefef; background: #f5f5f5; font-size: 22px; color: #333333;
+text-indent: 10px; line-height: 50px;font-weight: normal; font-family:'Microsoft Yi Baiti'; }
+.praiseWrap .praiseCon { border:1px solid #e6e6e6; border-top:0; position:relative;  }
+.praiseWrap .praiseCon .praisePanel { overflow:hidden; display:none; }
+.praiseWrap .praiseCon .praisePanel.cur { display:block; }
+.praiseWrap .praiseCon .praiseConInner { height:498px; overflow:hidden; }
+
+.praiseCon .arrow { position:absolute; width:27px; height:38px; top:50%; margin-top:-59px;  cursor:pointer;  z-index:3;  display:none;}
+.praiseCon:hover .arrow { display:block; } 
+.praiseCon .leftArrow { left:2px; background:url(../Images/homeindex.png) no-repeat -73px -38px; background-color:#000; background-color:rgba(0,0,0,0.35);}
+.praiseCon .rightArrow { right:2px; background:url(../Images/homeindex.png) no-repeat -73px 0px; background-color:#000; background-color:rgba(0,0,0,0.35);}
+.praiseCon .arrow:hover { background-color:rgba(0,0,0,0.2);}
+
+
+.mainPraise { margin:20px 20px 0 20px; padding-bottom:3px; border-bottom:1px solid #ededed; }
+.mainPraise .bookCover { float:left; height:180px; width:180px; position:relative; }
+.mainPraise .bookCover a img { max-height:180px; max-width:180px; }
+.mainPraise .bookCover .activeIcon { position:absolute; right:0; top:0; }
+.mainPraise .bookInfor { float:left; padding-left:15px; width:338px; }
+.mainPraise .bookInfor { overflow:hidden;  }
+.mainPraise .bookInfor h3 { margin-top:13px; height:30px; line-height:30px; overflow:hidden; font-weight:normal; }
+.mainPraise .bookInfor h3 a { font-family:'Microsoft YaHei'; font-size:16px; color:#000; text-decoration:none; }
+.mainPraise .bookInfor h3 a:hover { color:#e60000; }
+.mainPraise .bookInfor .priceScore { margin-top:11px;   }
+.mainPraise .bookInfor .priceScore .priceWrap { overflow:hidden;  line-height:24px; float:left; display:inline; margin-right:14px;  }
+.mainPraise .bookInfor .priceScore .priceWrap .salePrice { float:left; color:#e60000; font-size:18px; font-family:"Microsoft YaHei"; margin-right:12px;  }
+.mainPraise .bookInfor .priceScore .priceWrap .price { float:left; color:#999; font-size:14px; font-family:"Microsoft YaHei";  }
+.mainPraise .bookInfor .priceScore .scoreWrap { float:left;  overflow:hidden; line-height:24px; }
+.mainPraise .bookInfor .priceScore .scoreWrap span { float:left; color:#666;   }
+.mainPraise .bookInfor .priceScore .scoreWrap i { float:left;  background: url(../Images/homeindex.png) no-repeat -17px -386px; height:13px; width:13px; margin:5px 0 0 3px;  }
+.mainPraise .bookInfor .priceScore .scoreWrap i.one { background-position:0px -386px; }
+.mainPraise .bookInfor .priceScore .scoreWrap i.half {background-position: -33px -386px; }
+.mainPraise .bookInfor .priceScore .scoreWrap b { float:left;margin-left:10px; color:#ff6c00;  }
+.mainPraise .bookInfor .praiseText { margin-top:12px; height:96px; overflow:hidden;}
+.mainPraise .bookInfor .praiseText p { line-height:24px; color:#666666;  }
+
+.praiseList { overflow:hidden; padding:13px 19px 15px;  } 
+.praiseList li { float:left; width:174px; margin-right:1px; border:3px solid #fff; height:254px; position:relative; }
+.praiseList li:hover { border:3px solid #f5f5f5; }
+.praiseList li .cover { height:158px; padding-top:9px; position:relative; text-align:center; position:relative; }
+.praiseList li .cover a img { max-height:158px; max-width:158px; } 
+.praiseList li .icon { position:absolute; top:0;  right:0; }
+.praiseList li .bookName { font-weight:normal; padding:0 12px;  line-height:20px; height:20px;  margin-top:6px; overflow:hidden; }
+.praiseList li .bookName a { color:#333333; text-decoration:none; }
+.praiseList li .bookName a:hover { color:#e60000; }
+.praiseList li .author{  padding:0 12px; line-height:20px; color:#666666; margin-top:1px; }
+.praiseList li .scoreWrap {  padding:0 12px; margin-top:1px; line-height:20px; overflow:hidden; }
+.praiseList li .scoreWrap i { float:left; background: url(/Images/homeindex.png) no-repeat -17px -386px; height:13px; width:13px; margin:4px 3px 0 0;  }
+.praiseList li .scoreWrap i.one { background-position:0px -386px; }
+.praiseList li .scoreWrap i.half {background-position: -33px -386px; }
+.praiseList li .scoreWrap b { float:left;margin-left:10px; color:#ff6c00;  }
+.praiseList li .priceWrap {  padding:0 12px; overflow:hidden; line-height:20px;  }
+.praiseList li .priceWrap .salePrice { float:left; color:#e60000; font-size:15px; margin-right:6px; }
+.praiseList li .priceWrap .price { float:left; color:#999999; }
+/*淘便宜*/
+.cheapWrap { float:right;  width:585px; }
+.cheapWrap .cheapTitle { height:50px; background:#2b954e; line-height:50px; color:#fff; font-weight:normal; font-size:22px; font-family:'Microsoft YaHei'; text-indent:10px; position:relative; }
+.cheapWrap .cheapTitle span { position:absolute; height:50px; width:35px; top:0; left:-1px;background: url(../Images/childredSprit.png) no-repeat -36px -279px; }
+.cheapWrap .cheapCon { margin-top:10px; position:relative; }
+.cheapPanel { display:none; }
+.cheapPanel.cur { display:block;}
+.cheapPanel .cheapLeft { float:left; width:250px; }
+.cheapPanel .mainCheap { border:10px solid #f5f5f5; }
+.cheapPanel .mainCheap .bookCover { text-align:center; height:200px; padding:20px 0 10px; }
+.cheapPanel .mainCheap .bookCover a img { max-height:200px; max-width:200px;  }
+.cheapPanel .mainCheap .bookInfor { padding:0 10px 7px;  }
+.cheapPanel .mainCheap .bookInfor .bookName { overflow:hidden; line-height:22px; margin-top:6px; font-weight:normal;  }
+.cheapPanel .mainCheap .bookInfor .bookName a { font-size:14px; font-family:'Microsoft YaHei'; color:#333; text-decoration:none;  }
+.cheapPanel .mainCheap .bookInfor .bookName a:hover { color:#e60000; }
+.cheapPanel .mainCheap .bookInfor .author { line-height:20px; color:#666; }
+.cheapPanel .mainCheap .bookInfor .priceWrap { overflow:hidden; font-family:"Microsoft YaHei"; }
+.cheapPanel .mainCheap .bookInfor .priceWrap .salePrice { float:left; color:#e60000; font-size:15px;  margin-right:8px; line-height:22px; }
+.cheapPanel .mainCheap .bookInfor .priceWrap .price { float:left; color:#666; font-size:14px; } 
+.cheapPanel .cheapLeft .cheapRightBanner { margin-top:9px; }
+.cheapPanel .cheapLeft .cheapRightBanner a img { border:none; text-align:center; line-height:153px; color:#666; font-size:14px; font-family:'Microsoft YaHei'; }
+.cheapPanel .cheapRight { float:right; width:325px; }
+.cheapPanel .cheapRight li { border-top:1px solid #e6e6e6; overflow:hidden; height:150px; padding:6px 0; }
+.cheapPanel .cheapRight li .bookCover { float:left; height:140px; width:150px; padding:5px 0; text-align:center;  }
+.cheapPanel .cheapRight li .bookCover a img { max-height:140px; max-width:140px; }
+.cheapPanel .cheapRight li .bookInfor { float:left;  padding-left:5px; width:150px;  } 
+.cheapPanel .cheapRight li .bookInfor .bookName { line-height:20px; font-weight:normal; margin-top:28px;  height:44px; overflow:hidden; }
+.cheapPanel .cheapRight li .bookInfor .bookName a {  font-size:14px; font-family:'Microsoft YaHei'; text-decoration:none; }
+.cheapPanel .cheapRight li .bookInfor .bookName a:hover { color:#e60000; }
+.cheapPanel .cheapRight li .bookInfor .author { color:#666; line-height:20px; }
+.cheapPanel .cheapRight li .bookInfor .priceWrap { overflow:hidden; font-family:'Microsoft YaHei'; line-height:32px;  }
+.cheapPanel .cheapRight li .bookInfor .priceWrap .salePrice { float:left; font-size:15px; margin-right:10px; color:#e60000; }
+.cheapPanel .cheapRight li .bookInfor .priceWrap .price { float:left; color:#999;  }
+.cheapCon .arrow { position:absolute; width:27px; height:38px; top:50%; margin-top:-59px;  cursor:pointer;  z-index:3;  display:none;}
+.cheapCon:hover .arrow  { display:block; }
+.cheapCon .leftArrow { left:2px; background:url(../Images/homeindex.png) no-repeat -73px -38px; background-color:#000; background-color:rgba(0,0,0,0.35);}
+.cheapCon .rightArrow { right:2px; background:url(../Images/homeindex.png) no-repeat -73px 0px; background-color:#000; background-color:rgba(0,0,0,0.35);}
+.cheapCon .arrow:hover { background-color:rgba(0,0,0,0.2);}
+/* 生活淘书团 */
+.tstWrap { margin-top:15px; }
+.tstWrap .tst { float:left; width:950px; }
+.tstTit {    overflow: hidden;  border-bottom: 3px solid #e6e6e6; background: #f5f5f5; position: relative;}
+.tstTit h2 { text-align:left;  height:47px; line-height:50px;  font-size:22px; font-family:"Microsoft YaHei"; font-weight:normal; text-indent:10px; }
+.tstTit h2 a { color:#137e36; text-decoration:none; }
+.tstTit .more { height:50px; line-height:50px; color:#666; position:absolute; top:0; right:15px; font-size:14px; font-family:'Microsoft YaHei';  }
+.tstList { position:relative; height:315px; width:953px; overflow:hidden; margin-top:14px; }
+.tstList ul { position:absolute; left:0; top:0; width:970px;}
+.tstList ul li {float:left; width:304px; border:1px solid #e6e6e6; margin-right:15px; overflow:hidden;  background:#fafafa; height:313px; }
+.tstList ul li .bookCover { height:203px; }
+.tstList ul li .bookCover img { width:100%; border:none; text-align:center; line-height:203px;  }
+.tstList ul li .infor { background:#edf8ff }
+.tstList ul li .bookName { margin-top:5px; line-height:22px; height:66px; overflow: hidden; padding:0 14px; }
+.tstList ul li .bookName a { color:#333333; text-decoration:none; }
+.tstList ul li .bookName a:hover { color:#e60000; }
+.tstList ul li .priceWrap { padding:0 0 0 14px; overflow:hidden;line-height:24px; font-family:'Microsoft YaHei'; }
+.tstList ul li .priceWrap .salePrice { float:left; color:#e60000; font-size:22px; font-family:'Microsoft YaHei';   }
+.tstList ul li .priceWrap .salePrice b { font-size:14px;  }
+.tstList ul li .priceWrap .salePrice i { font-size:14px;}
+.tstList ul li .priceWrap .price {float:left; margin-left:13px; color:#999; line-height:28px; }
+.tstList ul li .priceWrap .discount { float:right; background:#989696; margin-right:14px; color:#fff; line-height:16px; height:16px; padding:0 5px; border-radius:3px; margin-top:5px;}
+/*生活畅销榜单*/
+.hotTst { width:230px; float:right;  }
+.hotTst .hotTstTitle { background:#2b954e; height:50px; position:relative;  }
+.hotTst .hotTstTitle h2 { line-height:50px; text-indent:13px; font-weight:normal;  }
+.hotTst .hotTstTitle h2 a { text-decoration:none; font-family:'Microsoft YaHei'; font-size:16px; color:#fff; cursor:default; }
+.hotTst .hotTstTitle span {position: absolute; height: 50px;  width: 35px;  top: 0; right: -2px; background: url(../Images/childredSprit.png) no-repeat -2px -279px; }
+.hotTstCon {  border:1px solid #eaeaea; border-top:none; border-bottom:none; padding-top:4px; }
+.hotTstCon ul li { border-bottom:1px solid #eaeaea; position:relative; }
+.hotTstCon .bookName { height:34px; line-height:34px; padding:0 28px; overflow:hidden; font-weight:normal; }
+.hotTstCon .bookName a { color:#333; font-size:12px; }
+.hotTstCon .bookCover { padding:0 24px 10px; display:none; } 
+.hotTstCon .bookCover img { width:100%; height:120px; text-align:center; line-height:120px; }
+.hotTstCon ul li.cur .bookCover { display:block; }
+.hotTstCon ul li .num { position:absolute; left:10px; top:12px; color:#333; font-family:Arial; } 
+.hotTstCon ul li i { position:absolute; right:10px; top:14px; color:#333; font-family:Arial; width:4px; height:6px; text-indent:-999px;  background: url(../Images/childredSprit.png) no-repeat 0 -343px; overflow:hidden;}
+.hotTstCon ul li.cur i { display:none; }
+.hotTstCon ul li.red .num { color:#e60000;} 
+.hotTst .more { height:20px; text-align:right; background:#f0f0f0; padding-right:10px; line-height:20px; }
+.hotTst .more a { color:#333333; }
+/*本站常销*/
+.siteHot { margin-top:20px; }
+.siteHot .siteHotTitle {height: 47px; background: #f5f5f5;  border-bottom: 3px solid #e6e6e6; line-height: 47px; position: relative;  } 
+.siteHot .siteHotTitle h2 { text-indent:18px; font-size:22px; font-weight:normal; color:#333; font-family:'Microsoft YaHei';  }
+.siteHot .siteHotCon { position:relative;  }
+.siteHot .siteHotCon .siteHotPannel { position:relative; height:550px; overflow:hidden; }
+.siteHot .siteHotCon ul { overflow:hidden; position:absolute; width:1212px; left:0; top:0; height:550px; }
+.siteHot .siteHotCon ul li { float:left; height:265px; width:190px; display:inline; margin-right:12px;margin-top:10px; position:relative; }
+.siteHot .siteHotCon ul li .bookCover { height:158px; margin-top:10px; text-align:center;    }
+.siteHot .siteHotCon ul li .bookCover a { display:block; }
+.siteHot .siteHotCon ul li .bookCover a img { max-height:158px; max-width:158px; }
+.siteHot .siteHotCon ul li .bookName { width:150px; padding:0 20px; line-height:18px; height:18px; overflow:hidden; margin-top:15px;  }
+.siteHot .siteHotCon ul li .bookName a { font-size:12px;font-weight:400; color:#333; text-decoration:none; }
+.siteHot .siteHotCon ul li .bookName a:hover { color:#e60000;}
+.siteHot .siteHotCon ul li .bookAuthor { margin-top:2px; color:#666; width:150px; padding:0 20px; height:18px; line-height:18px; white-space:nowrap; text-overflow:ellipsis; overflow:hidden; }
+.siteHot .siteHotCon ul li .priceWrap { margin-top:4px;  width:150px; padding:0 20px; overflow:hidden;line-height:16px; }
+.siteHot .siteHotCon ul li .priceWrap .salePrice { float:left; color:#e60000; font-size:15px; font-family:"Microsoft YaHei"; }
+.siteHot .siteHotCon ul li .priceWrap .price { line-height:18px; margin-left:7px; float:left; color:#999999; text-decoration-line:line-through; }
+.siteHot .siteHotCon ul li .icon { position:absolute; top:0; right:0; }
+.siteHot .siteHotCon ul li .icon img { width:100%; }
+.siteHot .siteHotCon .arrow { position:absolute; width:27px; height:38px; top:50%; margin-top:-19px;  cursor:pointer;  z-index:3;  display:none;}
+.siteHot .siteHotCon:hover .arrow  { display:block; }
+.siteHot .siteHotCon .leftArrow { left:2px; background:url(../Images/homeindex.png) no-repeat -73px -38px; background-color:#000; background-color:rgba(0,0,0,0.35);}
+.siteHot .siteHotCon .rightArrow { right:2px; background:url(../Images/homeindex.png) no-repeat -73px 0px; background-color:#000; background-color:rgba(0,0,0,0.35);}
+.siteHot .siteHotCon .arrow:hover { background-color:rgba(0,0,0,0.2);}
+/*底部分类导航*/
+.footKindNavWrap { margin-top:20px; }
+.footKindNavWrap .footKindNav { border:1px solid #e6e6e6; }
+.footKindNavWrap .footKindNav ul { overflow:hidden; }
+.footKindNavWrap .footKindNav ul li { float:left; height:158px; width:16.666%; display:inline; }
+.footKindNavWrap .footKindNav ul li a { display:block; height:158px;  border-right:1px solid #e6e6e6; text-align:center; font-size:14px; font-family:'Microsoft YaHei'; text-decoration:none; overflow:hidden; }
+.footKindNavWrap .footKindNav ul li span { display:block; height:62px; width:62px; margin:auto; background:url(../Images/categoryicon.png ) no-repeat -69px -1px; margin-top:35px;   }
+.footKindNavWrap .footKindNav ul li b { display:block;  line-height:20px; color:#333; margin-top:7px; }
+.footKindNavWrap .footKindNav ul li.culture a{ border-right:none; }
+.footKindNavWrap .footKindNav ul li.children span{ background-position:-69px -65px; }
+.footKindNavWrap .footKindNav ul li.socialscience span{ background-position:-69px -1px; }
+.footKindNavWrap .footKindNav ul li.life span{ background-position:-68px -193px; }
+.footKindNavWrap .footKindNav ul li.culture span{ background-position:-68px -257px; }
+.footKindNavWrap .footKindNav ul li.literature span{ background-position:-69px -129px; }
+.footKindNavWrap .footKindNav ul li.art span{ background-position:-68px -321px; }
+.footKindNavWrap .footKindNav ul li.children:hover span{ background-position:-2px -65px; }
+.footKindNavWrap .footKindNav ul li.socialscience:hover span{ background-position:-2px -1px; }
+.footKindNavWrap .footKindNav ul li.life span{ background-position:-1px -193px; }
+.footKindNavWrap .footKindNav ul li.culture:hover span{ background-position:-1px -257px; }
+.footKindNavWrap .footKindNav ul li.literature:hover span{ background-position:-2px -129px; }
+.footKindNavWrap .footKindNav ul li.art:hover span{ background-position:-1px -321px; }
+
+
+.footKindNavWrap .footKindNav ul li.children:hover b{ color:#ff396f; }
+.footKindNavWrap .footKindNav ul li.socialscience:hover b{ color:#996633; }
+.footKindNavWrap .footKindNav ul li.life b{ color:#2b954e; }
+.footKindNavWrap .footKindNav ul li.culture:hover b{ color:#07a1d2; }
+.footKindNavWrap .footKindNav ul li.literature:hover b{ color:#ed653b; }
+.footKindNavWrap .footKindNav ul li.art:hover b{ color:#466fc1; }
+/*侧导航*/
+.siderbar { position:fixed; left:50%; bottom:140px; margin-left:610px;  width:51px; z-index:997; background:#fff; display:none; }
+.siderbar ul li { border:2px solid #a39898;  border-bottom:none; text-align:center; }
+.siderbar ul li.nextStyle {  border-top-color:#2b954e; }
+.siderbar ul li>a { color:#666; line-height:16px; display:block; padding:4px 6px;  text-decoration:none;}
+.siderbar ul li:hover { background:#2b954e;  border-color:#2b954e; }
+.siderbar ul li:hover a { color:#fff; }
+.siderbar ul li.tst>a {  padding:12px 5px;  }
+.siderbar ul li.share { border-bottom:2px solid #a39898; position:relative;  }
+.siderbar ul li.share .shareTit { display:block; line-height:22px;padding: 4px 6px 0; }
+.siderbar ul li.share .shareTit span { display:block; width:17px; height:14px;background:url(../Images/childredSprit.png) no-repeat -25px -424px; margin:auto; }
+.siderbar ul li.share .shareWrap { position:absolute; left:-165px; display:none; top:-2px; width:151px; border:2px solid #a39898; height:40px; background:#ffffff; border-right:none; padding-left:10px; } 
+.siderbar ul li.share:hover .shareTit span { background: url(../Images/childredSprit.png) no-repeat 0 -424px;   }
+.siderbar ul li.share:hover .shareWrap { display:block; }
+.siderbar ul li.share .shareWrap a { float:left; display:inline; margin: 8px 5px 8px 0 }
+.siderbar ul li:hover { background:#2b954e;  border-color:#2b954e; }
+.siderbar ul li:hover a { color:#fff; }
+.siderbar .backtop {  }
+.siderbar .backtop a { text-indent:-999px; background:#a39898; overflow:hidden; display:block; height:24px; overflow:hidden; }
+.siderbar .backtop a span { display:block; width:20px; height:14px; margin:auto;  background: url(../Images/childredSprit.png) no-repeat -24px -441px; margin-top:6px;  }
+.siderbar .backtop a:hover span { background: url(../Images/childredSprit.png) no-repeat 0 -441px; }

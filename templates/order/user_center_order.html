@@ -1,0 +1,109 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load staticfiles %}
+
+
+<!--覆盖原来的导航栏区域-->
+{% block navbar %}
+{% endblock %}
+{% block search %}
+    <div class="search_bar clearfix">
+        <a href="{% url 'index' %}" class="logo fl"><img src="{% static 'images/logo.png' %}"
+                                                         style="width: 160px; height: 53px;"></a>
+        <div class="sub_page_name fl">|&nbsp;&nbsp;&nbsp;&nbsp;用户中心</div>
+        <div class="search_con fr">
+            <input type="text" class="input_text fl" name="" placeholder="搜索商品">
+            <input type="button" class="input_btn fr" name="" value="搜索">
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+
+    <div class="main_con clearfix">
+        <div class="left_menu_con clearfix">
+            <h3>用户中心</h3>
+            <ul>
+                <li><a href="{% url 'info' %}">· 个人信息</a></li>
+                <li><a href="{% url 'order_info' %}" class="active">· 全部订单</a></li>
+                <li><a href="{% url 'address' %}">· 收货地址</a></li>
+            </ul>
+        </div>
+        <div class="right_content clearfix">
+            <h3 class="common_title2">全部订单</h3>
+            {% for order in contacts %}
+                <ul class="order_list_th w978 clearfix">
+                    <li class="col01">{{ order.add_time }}</li>
+                    <li class="col02">订单号：{{ order.order }}</li>
+                    <li class="col02 stress">
+                        {% if order.pay_status %}已支付 {{ order.pay_method }} {% else %}未支付{% endif %}</li>
+                </ul>
+                <table class="order_list_table w980">
+                    <tbody>
+                    <tr>
+                        <td width="55%">
+                            {% for item in order.get_item %}
+                                <ul class="order_book_list clearfix">
+                                    <li class="col01"><img src="{{ item.product.image }}"></li>
+                                    <li class="col02">{{ item.product.title|center:"5" }}<em>{{ item.product.get_price }}元/册</em>
+                                    </li>
+                                    <li class="col03">{{ item.num }}</li>
+                                    <li class="col04">{{ item.product.get_price }}元</li>
+                                </ul>
+                            {% endfor %}
+                        </td>
+                        <td width="15%">{{ order.totalPrice }}元</td>
+                        <td width="15%">{% if order.pay_status %}已支付 {% else %}待付款{% endif %}</td>
+                        <td width="15%">
+                            {% if not order.pay_status %}
+                                <a href="#" class="to_pay oper_btn" id="{{ order.order }}">去付款</a>
+                            {% else %}
+                                <a href="{% url 'order_detail' order.order %}" class="oper_btn">查看订单详情</a>
+                            {% endif %}
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            {% endfor %}
+            {% csrf_token %}
+            <div class="pagenation">
+                {% include 'page.html' %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascript %}
+    <script>
+        $(function () {
+            $('.to_pay').click(function () {
+                var order_id = $(this).attr('id');
+                var req_data = {
+                    order_id: order_id,
+                    csrfmiddlewaretoken: $('input[name="csrfmiddlewaretoken"]').val(),
+                };
+                //alert("去支付订单号：" + order_id);
+                $.post("/pay/", req_data, function (data) {
+                    if (data.code == 3) {
+                        //alert("支付地址：" + data.url);
+                        window.open(data.url)
+                    } else {
+                        alert(data.msg)
+                    }
+                });
+                // 查询订单支付状态
+                $.get("/pay/check_pay/?order_id=" + order_id, function (data) {
+                    if (data.code == 0) {
+                        // 支付成功 页面刷新 重新加载订单状态
+                        //alert("支付成功");
+                        location.reload();
+                    } else {
+                        alert(data.msg)
+                    }
+                })
+            })
+        })
+    </script>
+
+
+{% endblock %}

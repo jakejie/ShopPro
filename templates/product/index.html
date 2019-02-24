@@ -1,0 +1,142 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block carousel %}
+    <div class="center_con clearfix">
+        <ul class="subnav fl">
+            {% for category in parent %}
+                <li>
+                    <a href="{% url 'parent' category.slug %}" class="{{ category.slug }}">{{ category.name }}</a>
+                </li>
+            {% endfor %}
+
+            <div class="menu">
+                {% for category in parent %}
+                    <div class="cate_detail">
+                        {% for ca in category.get_category %}
+                            <dl class="cate_detail_item">
+                                <dt class="cate_detail_tit">
+                                    <a class="cate_detail_tit_lk"
+                                       href="{% url 'category' ca.slug %}">{{ ca.name }} ></a>
+                                </dt>
+                                <dd class="cate_detail_con">
+                                    {% for tag in ca.get_tag %}
+                                        <a class="cate_detail_con_lk"
+                                           href="{% url 'tag' tag.slug %}">{{ tag.name }}</a>
+                                    {% endfor %}
+                                </dd>
+
+                            </dl>
+                        {% endfor %}
+                    </div>
+                {% endfor %}
+            </div>
+        </ul>
+        <div class="slide fl">
+            <ul class="slide_pics">
+                <li><img src="{% static 'images/slide.jpg' %}" alt="幻灯片" style="width: 760px; height: 270px;"></li>
+                <li><img src="{% static 'images/slide02.jpg' %}" alt="幻灯片" style="width: 760px; height: 270px;"></li>
+                <li><img src="{% static 'images/slide03.jpg' %}" alt="幻灯片" style="width: 760px; height: 270px;"></li>
+                <li><img src="{% static 'images/slide04.jpg' %}" alt="幻灯片" style="width: 760px; height: 270px;"></li>
+            </ul>
+            <div class="prev"></div>
+            <div class="next"></div>
+            <ul class="points"></ul>
+        </div>
+        <div class="adv fl">
+            <a href="#"><img src="{% static 'images/adv01.jpg' %}" style="width: 240px; height: 135px;"></a>
+            <a href="#"><img src="{% static 'images/adv02.jpg' %}" style="width: 240px; height: 135px;"></a>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+    {% for model in parent %}
+        <div class="list_model">
+            <div class="list_title clearfix">
+                <h3 class="fl" id="{{ model.slug }}">{{ model.name }}</h3>
+                <div class="subtitle fl">
+                    <span>|</span>
+                    {% for category in model.get_category %}
+                        <a href="{% url 'category' category.slug %}">{{ category.name }}</a>
+                    {% endfor %}
+                </div>
+                <a href="{% url 'parent' model.slug %}" class="book_more fr">查看更多 ></a>
+            </div>
+
+            <div class="book_con clearfix">
+                <div class="book_banner fl">
+                    <img src="{% static 'images/banner01.jpg' %}">
+                </div>
+                <ul class="book_list fl">
+                    {% for book in model.get_product %}
+                        <li>
+                            <h4>
+                                <a href="{% url 'detail' book.product.id %}">{{ book.product.title }}</a>
+                            </h4>
+                            <a href="{% url 'detail' book.product.id %}">
+                                <img src="{{ book.product.image }}"></a>
+                            <div class="prize">¥ {{ book.product.get_price }}</div>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="category" id="webCategory">
+    <div class="categoryInner">
+        <ul class="category-list">
+            {% for category in parent %}
+                <li class="js_toggle" style="background-image:none;">
+                    <div class="category-info">
+                        <h3 class="category-name">
+                            <a href="#" class="ml-22" target="_blank">一级》》{{ category.name }}</a>
+                        </h3>
+                        <em>&gt;</em>
+                    </div>
+                    <div class="menu-item" style="bottom: -12px; display: none;">
+                        <div class="area-bg">
+                            <!--分类列表-->
+                            <ul class="sublist clearfix">
+                                {% for ca in category.get_category %}
+                                    <li>
+                                        <h3 class="mcate-item-hd"><a href="#" target="_blank">二级》》{{ ca.name }}</a>
+                                        </h3>
+                                        <p class="mcate-item-bd">
+                                            {% for tag in ca.get_tag %}
+                                                <a href="#" target="_blank">三级》》{{ tag.name }}</a>
+                                                <span>|</span>
+                                            {% endfor %}
+                                        </p>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+        <div class="all_category"><a href="/books/kinder/" target="_blank">全部商品分类&gt;&gt;</a></div>
+    </div>
+    <div class="guanggao">
+        <a href="/tejia/tejia_tenday.aspx?daynum=10" target="_blank" title="中国图书网"><img
+                src="http://image31.bookschina.com/pro-images/sbanner/img1.jpg" alt="中国图书网"></a><a
+            href="/books/kind/newtejia.aspx" target="_blank" title="中国图书网"><img
+            src="http://image31.bookschina.com/pro-images/sbanner/img2.jpg" alt="中国图书网"></a>
+    </div>
+</div>
+

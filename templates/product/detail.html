@@ -1,0 +1,250 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load staticfiles %}
+
+{% block title %}
+    {{ content.title }}
+{% endblock %}
+
+{% block content %}
+    <div class="breadcrumb">
+        <a href="#">全部分类</a>
+        <span>></span>
+        <a href="{% url 'parent' content.get_tag.father.father.slug %}">{{ content.get_tag.father.father.name }}</a>
+        <span>></span>
+        <a href="{% url 'category' content.get_tag.father.slug %}">{{ content.get_tag.father.name }}</a>
+        <span>></span>
+        <a href="{% url 'tag' content.get_tag.slug %}">{{ content.get_tag.name }}</a>
+        <span>></span>
+        {% if content.four_name %}
+            <a href="#">{{ content.four_name }}</a>
+            <span>></span>
+        {% endif %}
+        <a href="#">商品详情</a>
+    </div>
+    <!--基本信息-->
+    <div class="book_detail_con clearfix">
+        <div class="book_detail_pic fl">
+            <img src="{{ content.image }}"></div>
+        <div class="book_detail_list fr">
+            <h3>{{ content.title }}</h3>
+            <p>{{ content.recomand }}</p>
+            <div class="prize_bar">
+                <span class="show_pirze">¥<em>{{ content.get_price }}</em></span>
+                <span class="show_unit">单  位：册</span>
+            </div>
+            <div class="book_num clearfix">
+                <div class="num_name fl">数 量：</div>
+                <div class="num_add fl">
+                    <input type="text" class="num_show fl" value="1">
+                    {% csrf_token %}
+                    <a href="javascript:;" class="add fr">+</a>
+                    <a href="javascript:;" class="minus fr">-</a>
+                </div>
+            </div>
+            <div class="total">总价：<em>100元</em></div>
+            <div class="operate_btn">
+                <a href="#" class="buy_btn" books_id="{{ content.id }}">立即购买</a>
+                <a href="javascript:;" class="add_cart" id="add_cart" books_id="{{ content.id }}">加入购物车</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="main_wrap clearfix">
+        <!--新品推荐--->
+        <div class="l_wrap fl clearfix">
+            <div class="new_book">
+                <h3>新品推荐</h3>
+                <ul>
+                    <li>
+                        <a href="#"><img src="{% static 'images/book/book001.jpg' %}"></a>
+                        <h4><a href="#">Python核心编程</a></h4>
+                        <div class="prize">￥3.90</div>
+                    </li>
+                    <li>
+                        <a href="#"><img src="{% static 'images/book/book002.jpg' %}"></a>
+                        <h4><a href="#">Python学习手册</a></h4>
+                        <div class="prize">￥16.80</div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="r_wrap fr clearfix">
+            <ul class="detail_tab clearfix">
+                <li class="active">商品介绍</li>
+                <li>评论</li>
+            </ul>
+            <div class="tab_content">
+                <dl>
+                    {% if content.specialist %}
+                        <dt>本书特色:</dt>{% endif %}
+                    <dd>{{ content.specialist|linebreaksbr }} </dd>
+                    <br>
+                    {% if content.brief %}
+                        <dt>内容简介:</dt>{% endif %}
+                    <dd>{{ content.brief|linebreaksbr }} </dd>
+                    <br>
+                    {% if content.catalog %}
+                        <dt>目录:</dt>{% endif %}
+                    <dd>{{ content.catalog|linebreaksbr }} </dd>
+                    <br>
+                    {% if content.xiangguan %}
+                        <dt>相关资料:</dt>{% endif %}
+                    <dd>{{ content.xiangguan|linebreaksbr }} </dd>
+                    <br>
+                    {% if content.excerpt %}
+                        <dt>内容节选:</dt>{% endif %}
+                    <dd>{{ content.excerpt|linebreaksbr }} </dd>
+                    <br>
+                    {% if content.zuozhejianjie %}
+                        <dt>作者简介:</dt>{% endif %}
+                    <dd>{{ content.zuozhejianjie|linebreaksbr }} </dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block script %}
+    <script type="text/javascript">
+        $(function () {
+            update_total_price();
+
+            // 计算总价
+            function update_total_price() {
+                // 获取商品的价格和数量
+                books_price = $('.show_pirze').children('em').text();
+                books_count = $('.num_show').val();
+                // 计算商品的总价
+                books_price = parseFloat(books_price);
+                books_count = parseInt(books_count);
+                total_price = books_price * books_count;
+                // 设置商品总价
+                $('.total').children('em').text(total_price.toFixed(2) + '元')
+            }
+
+            // 商品增加
+            $('.add').click(function () {
+                // 获取商品的数量
+                books_count = $('.num_show').val();
+                // 加1
+                books_count = parseInt(books_count) + 1;
+                // 重新设置值
+                $('.num_show').val(books_count);
+                // 计算总价
+                update_total_price()
+            });
+
+            // 商品减少
+            $('.minus').click(function () {
+                // 获取商品的数量
+                books_count = $('.num_show').val();
+                // 加1
+                books_count = parseInt(books_count) - 1;
+                if (books_count == 0) {
+                    books_count = 1
+                }
+                // 重新设置值
+                $('.num_show').val(books_count);
+                // 计算总价
+                update_total_price()
+            });
+
+            // 手动输入
+            $('.num_show').blur(function () {
+                // 获取商品的数量
+                books_count = $(this).val()
+                // 数据校验
+                if (isNaN(books_count) || books_count.trim().length == 0 || parseInt(books_count) <= 0) {
+                    books_count = 1
+                }
+                // 重新设置值
+                $('.num_show').val(parseInt(books_count));
+                // 计算总价
+                update_total_price()
+            })
+        })
+    </script>
+{% endblock %}
+
+{% block javascript %}
+    <!--加入购物车-->
+    <script type="text/javascript">
+        $('.add_cart').click(function () {
+            // 获取商品的id和商品数量
+            var books_id = $(this).attr('books_id');
+            var books_count = $('.num_show').val();
+            var csrf = $('input[name="csrfmiddlewaretoken"]').val();
+            // 发起请求，访问/cart/add/, 进行购物车数据的添加
+            var params = {
+                'books_id': books_id,
+                'books_count': books_count,
+                'csrfmiddlewaretoken': csrf
+            };
+            //加入购物车操作
+            $.post('{% url "add_cart" %}', params, function (data) {
+                //alert(data.code);
+                if (data.code == 1) {
+                    // 添加成功
+                    var count = $('#show_count').html();
+                    var count = parseInt(count) + parseInt(books_count);
+                    $('#show_count').html(count);
+                }
+                else {
+                    // 添加失败
+                    alert(data.msg);
+                }
+            })
+        });
+        //点击立即购买 先加入购物车 跳转到购物车页面
+        $('.buy_btn').click(function () {
+            // 获取商品的id和商品数量
+            var books_id = $(this).attr('books_id');
+            var books_count = $('.num_show').val();
+            var csrf = $('input[name="csrfmiddlewaretoken"]').val();
+            // 发起请求，访问/cart/add/, 进行购物车数据的添加
+            var params = {
+                'books_id': books_id,
+                'books_count': books_count,
+                'csrfmiddlewaretoken': csrf
+            };
+            //加入购物车操作
+            $.post('{% url "add_cart" %}', params, function (data) {
+                //alert(data.code);
+                if (data.code == 1) {
+                    // 添加成功
+                    var count = $('#show_count').html();
+                    var count = parseInt(count) + parseInt(books_count);
+                    $('#show_count').html(count);
+                    window.location.href = '{% url 'cart' %}';
+                }
+                else {
+                    // 添加失败
+                    alert(data.msg);
+                }
+            })
+        });
+        //跳转到添加评论的页面
+        //$('#write-comment').click(function () {
+        //    window.open("{ url 'comment:comment' book_id=books.id %}")
+        //})
+    </script>
+    <style type="text/css">
+        .comment {
+            background-color: #c40000;
+            color: #fff;
+            margin-left: 10px;
+            position: relative;
+            z-index: 10;
+            display: inline-block;
+            width: 178px;
+            height: 38px;
+            border: 1px solid #c40000;
+            font-size: 14px;
+            line-height: 38px;
+            text-align: center;
+        }
+    </style>
+{% endblock %}

@@ -1,0 +1,203 @@
+{% load static %}
+{% load staticfiles %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <title>{% block title %}尚书城{% endblock %}</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/reset.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+    <script type="text/javascript" src="{% static 'js/jquery-1.12.4.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/jquery-ui.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/slide.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/menu.js' %}"></script>
+    <script type="text/javascript" src="{% static 'css/menu.css' %}"></script>
+
+
+
+
+
+    {% block script %} {% endblock %}
+    {% block link %} {% endblock %}
+    <style>
+        .cate {
+            z-index: 999;
+            display: none;
+            margin-left: 200px;
+            position: fixed;
+            width: 1000px;
+            margin-top: -184px;
+        }
+
+        .two {
+            margin-left: -57px;
+            font-size: 12px;
+            color: #e60000;
+            text-decoration: none;
+        }
+
+        .tag {
+            float: left;
+        }
+
+        .three {
+            text-decoration: none;
+            float: left;
+            color: #666666;
+            margin: 0 16px;
+            white-space: nowrap;
+        }
+
+    </style>
+</head>
+<body>
+<!--顶部--->
+<div class="header_con">
+    <div class="header">
+        <div class="welcome fl">欢迎来到尚书城!</div>
+        <div class="fr">
+            {% if request.user.is_authenticated %}
+                <div class="user_link fl">
+                    欢迎您：<em>{{ user.username }}</em>
+                    <span>|</span>
+                    <a href="{% url 'info' %}">用户中心</a>
+                    <span>|</span>
+                    <a href="{% url 'cart' %}">我的购物车</a>
+                    <span>|</span>
+                    <a href="{% url 'order_info' %}">我的订单</a>
+                    <span>|</span>
+                    <a href="{% url 'logout' %}">退出登陆</a>
+                </div>
+            {% else %}
+                <div class="login_btn fl">
+                    <a href="{% url 'login' %}">登录</a>
+                    <span>|</span>
+                    <a href="{% url 'register' %}">注册</a>
+                </div>
+            {% endif %}
+
+        </div>
+    </div>
+</div>
+
+{% block search %}
+    <!--购物车/搜索--->
+    <div class="search_bar clearfix">
+        <a href="{% url 'index_1' %}" class="logo fl">
+            <img src="{% static 'images/logo.png' %}" style="width: 160px; height: 53px;"></a>
+        {% include 'search/base.html' %}
+        <div class="guest_cart fr">
+            <a href="{% url 'cart' %}" class="cart_name fl">我的购物车</a>
+            <div class="book_count fl" id="show_count">{{ cart_list|length }}</div>
+        </div>
+    </div>
+{% endblock %}
+
+
+
+
+{% block navbar %}
+    <!--导航--->
+    <div class="navbar_con">
+        <div class="navbar">
+            <!--原始分类代码--->
+            <div class="subnav_con fl">
+                <a href="{% url 'index' %}"><h1 style="width: 200px">全部商品分类</h1></a>
+{#                <span></span>#}
+{#                <ul class="subnav parent" style="width: 100%">#}
+{#                </ul>#}
+            </div>
+            <ul class="navlist fl">
+                <li><a href="{% url 'index_1' %}">首页</a></li>
+                <li class="interval">|</li>
+                <li><a href="#">移动端书城</a></li>
+                <li class="interval">|</li>
+                <li><a href="#">秒杀</a></li>
+            </ul>
+        </div>
+    </div>
+{% endblock %}
+<!--轮播--->
+{% block carousel %}
+
+{% endblock %}
+
+<!--正文--->
+{% block content %}
+
+{% endblock %}
+{% include 'footer.html' %}
+
+{% block javascript %}
+{% endblock %}
+
+<!--
+<script type="text/javascript">
+    // 鼠标移动 可以看到二级分类 三级分类
+    $(function () {
+        $(".parent").on("mouseenter", ".category", function () {
+            $(this).find("li").css({"background": "#ffd4d4", "color": "#fff"});
+            $(this).find("ul").show();
+            threeColumns($(this))
+        }).on("mouseleave", ".category", function () {
+            $(this).find("li").css({"background": "#fff", "color": "#444"});
+            $(this).find("ul").hide();
+        })
+    });
+    $(function () {
+        $(".category").on("mouseenter", ".cate", function () {
+            $(this).find("li").css({"background": "#ffd4d4", "color": "#fff"});
+            $(this).find("ul").show();
+            threeColumns($(this))
+        }).on("mouseleave", ".tag", function () {
+            $(this).find("li").css({"background": "#fff", "color": "#444"});
+            $(this).find("ul").hide();
+        })
+    })
+
+</script>
+<script type="text/javascript">
+
+    bookNav("#webCategory");
+
+    function bookNav(a) {
+        $(a).delegate(".js_toggle", "mouseenter", function () {
+            var t = $(this),
+                e = t.find(".menu-item"),
+                o = (t.index(), e.find(".menu-item"), $(a).offset().top),
+                i = t.offset().top - o,
+                n = (e.outerHeight() - t.outerHeight()) / 2,
+                s = $(a).height() - (t.offset().top - o + t.outerHeight());
+            e.outerHeight() / 2 > s ? e.css("bottom", -s) : e.css("top", n > i ? -i - 2 : -n - 2),
+                e.show(),
+                t.addClass("hover")
+        }).delegate(".js_toggle", "mouseleave",
+            function () {
+                $(this).removeClass("hover").find(".menu-item").hide();
+            })
+    }
+
+    if ($(".category-content .category").is(":hidden")) {
+        $("#nav .category-content .all-goods").hover(function () {
+            $(".category-content .category").show();
+        }, function () {
+            $(".category-content .category").hide();
+        })
+    }
+
+    $(".specil_category li").each(function (index, obj) {
+        if (window.location.pathname == '/')
+            return;
+        $(obj).removeClass('cur');
+        if ($(obj).find('a').attr('href').toLocaleLowerCase().indexOf(window.location.pathname.toLocaleLowerCase()) != -1)
+            $(obj).addClass('cur');
+    });
+</script>
+--->
+<script type="text/javascript" src="{% static 'js/cart.js' %}"></script>
+
+</body>
+</html>
+
+

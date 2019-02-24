@@ -1,0 +1,32 @@
+<div class="pagenation">
+    <!---首页--->
+    {% if contacts.previous_page_number != 1 %}
+        <a href="?page=1">1</a>
+    {% else %}
+        <a href="#">没有上一页</a>
+    {% endif %}
+    <!--加几个点点点--->
+    {% if contacts.number != 3 and contacts.number != 1 and contacts.number != 2 %}
+        <a>···</a>
+    {% endif %}
+    <!--上一页--->
+    {% if contacts.has_previous %}
+        <a href="?page={{ contacts.previous_page_number }}">上一页</a>
+    {% endif %}
+    <!--当前页--->
+    <a class="active">第 {{ contacts.number }} 页</a>
+    <!--下一页--->
+    {% if contacts.has_next %}
+        <a href="?page={{ contacts.next_page_number }}">下一页></a>
+    {% endif %}
+    <!--加几个点点点--->
+    {% if contacts.next_page_number != contacts.paginator.num_pages %}
+        <a>···</a>
+    {% endif %}
+    <!--最后一页--->
+    {% if contacts.number != contacts.paginator.num_pages %}
+        <a href="?page={{ contacts.paginator.num_pages }}">{{ contacts.paginator.num_pages }}</a>
+    {% else %}
+        <a href="#">没有下一页</a>
+    {% endif %}
+</div>
